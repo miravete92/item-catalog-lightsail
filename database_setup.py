@@ -14,6 +14,13 @@ class User(Base):
     email = Column(String(250), nullable=False)
     picture = Column(String(250))
 
+    @property
+    def serialize(self):
+        """Return object data in easily serializeable format"""
+        return {
+            'name': self.name,
+            'id': self.id
+        }
 
 class Category(Base):
     __tablename__ = 'category'
@@ -25,8 +32,8 @@ class Category(Base):
     def serialize(self):
         """Return object data in easily serializeable format"""
         return {
-            'name': self.name,
-            'id': self.id,
+            'title': self.title,
+            'id': self.id
         }
 
 
@@ -48,8 +55,8 @@ class Item(Base):
             'name': self.name,
             'description': self.description,
             'id': self.id,
-            'category': self.category,
-            'user': self.user
+            'category': self.category.serialize,
+            'user': self.user.serialize
         }
 
 

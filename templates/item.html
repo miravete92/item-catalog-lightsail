@@ -18,7 +18,13 @@
 					</p>
 				</div>
 				<div>
-					<a href="{{url_for('editItem', item=item.name, category=item.category.title)}}">Edit</a> | <a href="{{url_for('deleteItem', item=item.name, category=item.category.title)}}">Delete</a>
+					{%if 'username' in session and session.user_id == item.user_id %}
+						<a href="{{url_for('editItem', item=item.name, category=item.category.title)}}">Edit</a> | <a href="{{url_for('deleteItem', item=item.name, category=item.category.title)}}">Delete</a>
+					{%else%}
+						<p class="itemOwner">
+							Owner: {{item.user.name}}
+						</p>
+					{% endif %}
 				</div>
 			</section>
 		</div>		

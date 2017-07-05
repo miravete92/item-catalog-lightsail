@@ -1,6 +1,12 @@
 <header>
 	<div class="headerBox">
 		<div class="headerText"><a href="{{url_for('catalog')}}"><h1>Catalog App</h1></a></div>
-		<div class="loginButton"><a href="{{url_for('login')}}">Login</a></div>
+		{%if 'username' not in session %}
+		<a class="loginButton" href="{{url_for('login')}}"><div>Login</div></a>
+		{% else %}
+		<h3>Hi, {{session.username}} </h3>
+		<a class="loginButton" href="{{url_for('disconnect')}}">Logout<div class="userIcon"><img src="{{session.picture}}" alt="user image"/></div></div></a>
+		{% endif %}
+		
 	</div>
 </header>
