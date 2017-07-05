@@ -5,12 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
 </head>
 <body>
-	<header>
-		<div class="headerBox">
-			<div class="headerText"><a href="#"><h1>Catalog App</h1></a></div>
-			<div class="loginButton"><a href="#">Login</a></div>
-		</div>
-	</header>
+	{% include "header.html" %}
 	<main>
 		<div class="mainBox">
 			<section class="itemView">
@@ -18,17 +13,16 @@
 					<h2>{% if new %}New Item{% else %}Edit Item{% endif %}</h2>
 				</div>
 				<div class="itemForm">
-					<form action="#" method="{% if new %}post{% else %}put{% endif %}">
-						<label for="title">Title</label>
-						<input type="text" name="title" id="title" required="true"/>
+					<form action="#" method="post">
+						<label for="name">Name</label>
+						<input type="text" name="name" id="name" required="true" value="{{item.name }}"/>
 						<label for="description">Description</label>
-						<input type="text" name="description" id="description" required="true"/>
-						<label for="category">Title</label>
-						<select name="category" id="category">
-							<option value="cat1">Category1</option>
-							<option value="cat2">Category2</option>
-							<option value="cat3">Category3</option>
-							<option value="cat4">Category4</option>
+						<input type="text" name="description" id="description" required="true" value="{{item.description}}"/>
+						<label for="category">Category</label>
+						<select name="category_id" id="category_id">
+						{% for category in categories %}
+							<option value="{{category.id}}" {% if not new and category.id == item.category.id %}selected{% endif %}>{{category.title}}</option>
+						{% endfor %}
 						</select> 
 						<input type="submit" value="Submit"/>
 					</form>

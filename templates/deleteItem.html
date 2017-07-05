@@ -5,12 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
 </head>
 <body>
-	<header>
-		<div class="headerBox">
-			<div class="headerText"><a href="#"><h1>Catalog App</h1></a></div>
-			<div class="loginButton"><a href="#">Login</a></div>
-		</div>
-	</header>
+	{% include "header.html" %}
 	<main>
 		<div class="mainBox">
 			<section class="itemView">
@@ -19,7 +14,7 @@
 				</div>
 				<div class="itemDescription">
 					<div class="itemForm">
-						<form action="#" method="delete">
+						<form action="#" method="post">
 							<label for="title">Are you sure you want to delete?</label>
 							<input id="confirmDelete" type="submit" value="Submit"/>
 						</form>

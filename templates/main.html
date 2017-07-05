@@ -5,12 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
 </head>
 <body>
-	<header>
-		<div class="headerBox">
-			<div class="headerText"><a href="#"><h1>Catalog App</h1></a></div>
-			<div class="loginButton"><a href="#">Login</a></div>
-		</div>
-	</header>
+	{% include "header.html" %}
 	<main>
 		<div class="mainBox">
 			<section class="categories">
@@ -19,29 +14,24 @@
 				</div>
 				<div class="categoriesList">
 					<ul>
-						<li class="category"><a href="#">Category1</a></li>
-						<li class="category"><a href="#">Category2</a></li>
-						<li class="category"><a href="#">Category3</a></li>
-						<li class="category"><a href="#">Category4</a></li>
-						<li class="category"><a href="#">Category5</a></li>
+					{% for category in categories %}
+						<li class="category"><a href="{{url_for('getCategory', category = category.title)}}">{{category.title}}</a></li>
+					{% endfor %}
 					</ul>
 				</div>
 			</section>
 			<section class="items">
 				<div class="addItemButton">
-					<a href="#">Add Item</a>
+					<a href="{{url_for('newItem')}}">Add Item</a>
 				</div>
 				<div class="itemsTitle">
-					<h2>Lastest Items</h2>
+					<h2>{% if selectedCategory %}{{selectedCategory}} Items ({{items|length}} items){% else %}Lastest Items{% endif %}</h2>
 				</div>
 				<div class="itemList">
 					<ul>
-						<li class="item"><a href="#">Item1</a> <span class="itemCategory">(category)</span></li>
-						<li class="item"><a href="#">Item2</a> <span class="itemCategory">(category)</span></li>
-						<li class="item"><a href="#">Item3</a> <span class="itemCategory">(category)</span></li>
-						<li class="item"><a href="#">Item4</a> <span class="itemCategory">(category)</span></li>
-						<li class="item"><a href="#">Item5</a> <span class="itemCategory">(category)</span></li>
-						<li class="item"><a href="#">Item6</a> <span class="itemCategory">(category)</span></li>
+					{% for item in items %}
+						<li class="item"><a href="{{url_for('getItem', category = item.category.title, item = item.name)}}">{{item.name}}</a> <span class="itemCategory">({{item.category.title}})</span></li>
+					{% endfor %}
 					</ul>
 				</div>
 			</section>

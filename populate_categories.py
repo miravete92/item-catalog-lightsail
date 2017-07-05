@@ -19,39 +19,39 @@ DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
 # Menu for UrbanBurger
-category1 = Category(name="Soccer")
+category1 = Category(title="Soccer")
 session.add(category1)
 session.commit()
 
-category2 = Category(name="Basketball")
+category2 = Category(title="Basketball")
 session.add(category2)
 session.commit()
 
-category3 = Category(name="Baseball")
+category3 = Category(title="Baseball")
 session.add(category3)
 session.commit()
 
-category4 = Category(name="Frisbee")
+category4 = Category(title="Frisbee")
 session.add(category4)
 session.commit()
 
-category5 = Category(name="Snowboarding")
+category5 = Category(title="Snowboarding")
 session.add(category5)
 session.commit()
 
-category6 = Category(name="Rock Climbing")
+category6 = Category(title="Rock Climbing")
 session.add(category6)
 session.commit()
 
-category7 = Category(name="Foosball")
+category7 = Category(title="Foosball")
 session.add(category7)
 session.commit()
 
-category8 = Category(name="Skating")
+category8 = Category(title="Skating")
 session.add(category8)
 session.commit()
 
-category9 = Category(name="Hockey")
+category9 = Category(title="Hockey")
 session.add(category9)
 session.commit()
 
