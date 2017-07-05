@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Catalog App</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+	<header>
+		<div class="headerBox">
+			<div class="headerText"><a href="#"><h1>Catalog App</h1></a></div>
+			<div class="loginButton"><a href="#">Login</a></div>
+		</div>
+	</header>
+	<main>
+		<div class="mainBox">
+			<section class="categories">
+				<div class="categoriesTitle">
+					<h2>Categories</h2>
+				</div>
+				<div class="categoriesList">
+					<ul>
+						<li class="category"><a href="#">Category1</a></li>
+						<li class="category"><a href="#">Category2</a></li>
+						<li class="category"><a href="#">Category3</a></li>
+						<li class="category"><a href="#">Category4</a></li>
+						<li class="category"><a href="#">Category5</a></li>
+					</ul>
+				</div>
+			</section>
+			<section class="items">
+				<div class="addItemButton">
+					<a href="#">Add Item</a>
+				</div>
+				<div class="itemsTitle">
+					<h2>Lastest Items</h2>
+				</div>
+				<div class="itemList">
+					<ul>
+						<li class="item"><a href="#">Item1</a> <span class="itemCategory">(category)</span></li>
+						<li class="item"><a href="#">Item2</a> <span class="itemCategory">(category)</span></li>
+						<li class="item"><a href="#">Item3</a> <span class="itemCategory">(category)</span></li>
+						<li class="item"><a href="#">Item4</a> <span class="itemCategory">(category)</span></li>
+						<li class="item"><a href="#">Item5</a> <span class="itemCategory">(category)</span></li>
+						<li class="item"><a href="#">Item6</a> <span class="itemCategory">(category)</span></li>
+					</ul>
+				</div>
+			</section>
+		</div>		
+	</main>
+</body>
+</html>
