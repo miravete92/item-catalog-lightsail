@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, abort, jsonify
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, desc
 from sqlalchemy.orm import sessionmaker
 from database_setup import Category, Base, Item, User
 from flask import session as login_session
@@ -28,7 +28,7 @@ APPLICATION_NAME = "Item Catalog"
 @app.route('/catalog')
 def catalog():
 	categories = session.query(Category).all()
-	items = session.query(Item).all()
+	items = session.query(Item).order_by(desc(Item.id)).limit(8)
 	return render_template('main.html', categories=categories, items=items)
 
 @app.route('/catalog/<string:category>')

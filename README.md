@@ -37,7 +37,26 @@ To run the program just type in *python item_catalog.py*
 
 Server is now up! Point to *localhost:5000* from host computer to test it.
 
-Remember that if you want to create itens you have to log in.
+Remember that if you want to create items you must to log in.
+
+## Main Routes
+
+### GET
++ *<server_ip>:5000/* - displays all categories and last 8 items added.
++ *<server_ip>:5000/catalog* - displays all categories and last 8 items added.
++ *<server_ip>:5000/catalog/<category>* - displays all items in category
++ *<server_ip>:5000/catalog/new* - displays new item window.
++ *<server_ip>:5000/catalog/<category>/<item>* - displays information about an item
++ *<server_ip>:5000/catalog/<category>/<item>/edit* - displays edit window for an item
++ *<server_ip>:5000/catalog/<category>/<item>/remove* - displays remove window for an item
++ *<server_ip>:5000/login* - displays login window
+
+### POST
++ *<server_ip>:5000/catalog/new* - creates a new item.
++ *<server_ip>:5000/catalog/<category>/<item>/edit* - edits an item.
++ *<server_ip>:5000/catalog/<category>/<item>/remove* - removes an item
++ *<server_ip>:5000/disconnect* - user logs out
+
 
 ## API endpoints
 
@@ -46,12 +65,10 @@ Remember that if you want to create itens you have to log in.
 
 ## Design
 
-*logsdb.py* file contains query methods to fetch the information from database.
+*database_setup.py* file contains the source to setup database
 
-*logs.py* file only calls these methods and prints them in plain text.
+*item_catalog.py* file contains the source code to start the server
 
-*output.txt* file contains a sample output of the program *logs.py*
+*templates/* directory contains html templates that will be rendered by the webservice
 
-## Notes
-
-You can redirect the output to a file using python *logs.py > output.txt*
+*static/* directory contains static files like styles
