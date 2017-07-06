@@ -35,27 +35,27 @@ Run these python programs to setup the database
 
 To run the program just type in *python item_catalog.py*
 
-Server is now up! Point to *localhost:5000* from host computer to test it.
+Server is now up! Point to *localhost:8000* from host computer to test it.
 
 Remember that if you want to create items you must to log in.
 
 ## Main Routes
 
 ### GET
-+ *<server_ip>:5000/* - displays all categories and last 8 items added.
-+ *<server_ip>:5000/catalog* - displays all categories and last 8 items added.
-+ *<server_ip>:5000/catalog/<category>* - displays all items in category
-+ *<server_ip>:5000/catalog/new* - displays new item window.
-+ *<server_ip>:5000/catalog/<category>/<item>* - displays information about an item
-+ *<server_ip>:5000/catalog/<category>/<item>/edit* - displays edit window for an item
-+ *<server_ip>:5000/catalog/<category>/<item>/remove* - displays remove window for an item
-+ *<server_ip>:5000/login* - displays login window
++ *<server_ip>:8000/* - displays all categories and last 8 items added.
++ *<server_ip>:8000/catalog* - displays all categories and last 8 items added.
++ *<server_ip>:8000/catalog/<category>* - displays all items in category
++ *<server_ip>:8000/catalog/new* - displays new item window.
++ *<server_ip>:8000/catalog/<category>/<item>* - displays information about an item
++ *<server_ip>:8000/catalog/<category>/<item>/edit* - displays edit window for an item
++ *<server_ip>:8000/catalog/<category>/<item>/remove* - displays remove window for an item
++ *<server_ip>:8000/login* - displays login window
 
 ### POST
-+ *<server_ip>:5000/catalog/new* - creates a new item.
-+ *<server_ip>:5000/catalog/<category>/<item>/edit* - edits an item.
-+ *<server_ip>:5000/catalog/<category>/<item>/remove* - removes an item
-+ *<server_ip>:5000/disconnect* - user logs out
++ *<server_ip>:8000/catalog/new* - creates a new item.
++ *<server_ip>:8000/catalog/<category>/<item>/edit* - edits an item.
++ *<server_ip>:8000/catalog/<category>/<item>/remove* - removes an item
++ *<server_ip>:8000/disconnect* - user logs out
 
 
 ## API endpoints
