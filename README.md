@@ -72,3 +72,7 @@ Remember that if you want to create items you must to log in.
 *templates/* directory contains html templates that will be rendered by the webservice
 
 *static/* directory contains static files like styles
+
+## Thanks to
+
+Udacity for the google and facebook OAUTH code
