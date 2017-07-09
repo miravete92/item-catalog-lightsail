@@ -60,6 +60,7 @@ Remember that if you want to create items you must to log in.
 
 ## API endpoints
 
++ */catalog/random.json* - Returns a random item
 + */catalog.json* - Returns a list of all items
 + */catalog/Snowboarding.json* - Returns a list of Snowboarding items (You can check other categories instead with */catalog/<name_of_category>.json*)
 

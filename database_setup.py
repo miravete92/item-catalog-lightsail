@@ -22,6 +22,7 @@ class User(Base):
             'id': self.id
         }
 
+
 class Category(Base):
     __tablename__ = 'category'
 
