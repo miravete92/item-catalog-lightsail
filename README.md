@@ -1,79 +1,49 @@
-Logs analysis project
-=====================
+Linux Server Configuration Project
+==================================
 
-### By Alberto Miravete
+Author
+------
+Alberto Miravete Arrufat
 
-## Description
+IP Address and Port
+-------------------
+IP: 52.56.77.58
+Port: 2200
 
-This application can be used to store items and organize them in categories.
+Application URL
+---------------
+[http://52.56.77.58](http://52.56.77.58)
 
-You can browse created items and categories and see their description.
+Software Installed
+------------------
+### Apache2 server (Version 2.4.18)
+Modified */etc/apache2/sites-avilable/000-default.conf* as follows:
 
-If you want to create new items, you must log-in with an external authentication client.
+<VirtualHost *>
+    ServerName example.com
 
-An API endpoint is also avilable to get item list filtered by category.
+    WSGIDaemonProcess item-catalog user=catalog group=catalog threads=5 home=/var/www/item-catalog
+    WSGIScriptAlias / /var/www/item-catalog/item_catalog.wsgi
 
-You cannot edit or delete other user's items.
-
-## Installation
-
-Make sure you have all these python modules installed with python 2.7
-
-+ sqlalchemy
-+ oauth2client
-+ httplib2
-+ flask
-+ requests
-
-Run these python programs to setup the database
-
-1. From this folder, run *python database_setup.py*
-
-2. Run *populate_categories.py* to insert some categories in database
-
-## How to run it
-
-To run the program just type in *python item_catalog.py*
-
-Server is now up! Point to *localhost:8000* from host computer to test it.
-
-Remember that if you want to create items you must to log in.
-
-## Main Routes
-
-### GET
-+ *<server_ip>:8000/* - displays all categories and last 8 items added.
-+ *<server_ip>:8000/catalog* - displays all categories and last 8 items added.
-+ *<server_ip>:8000/catalog/<category>* - displays all items in category
-+ *<server_ip>:8000/catalog/new* - displays new item window.
-+ *<server_ip>:8000/catalog/<category>/<item>* - displays information about an item
-+ *<server_ip>:8000/catalog/<category>/<item>/edit* - displays edit window for an item
-+ *<server_ip>:8000/catalog/<category>/<item>/remove* - displays remove window for an item
-+ *<server_ip>:8000/login* - displays login window
-
-### POST
-+ *<server_ip>:8000/catalog/new* - creates a new item.
-+ *<server_ip>:8000/catalog/<category>/<item>/edit* - edits an item.
-+ *<server_ip>:8000/catalog/<category>/<item>/remove* - removes an item
-+ *<server_ip>:8000/disconnect* - user logs out
+    <Directory /var/www/item-catalog>
+        WSGIProcessGroup item-catalog
+        WSGIApplicationGroup %{GLOBAL}
+        Order deny,allow
+        Allow from all
+    </Directory>
+</VirtualHost>
 
 
-## API endpoints
+### Postgresql (Version 9.5.7)
 
-+ */catalog/random.json* - Returns a random item
-+ */catalog.json* - Returns a list of all items
-+ */catalog/Snowboarding.json* - Returns a list of Snowboarding items (You can check other categories instead with */catalog/<name_of_category>.json*)
+created user catalog
+created database catalog for this user
 
-## Design
+### python 2.7 and pip
+Installed *sqlalchemy, flask, psycopg2, httplib2, oauth2client, requests* modules logged in as catalog user
 
-*database_setup.py* file contains the source to setup database
 
-*item_catalog.py* file contains the source code to start the server
-
-*templates/* directory contains html templates that will be rendered by the webservice
-
-*static/* directory contains static files like styles
-
-## Thanks to
-
-Udacity for the google and facebook OAUTH code
+Note
+---------------------
+Google Oauth client does not allow public IPs for redirecting URLs, so Google authentication is not working. 
+Instead you can use Facebook authentication.
