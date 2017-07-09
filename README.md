@@ -18,7 +18,7 @@ Software Installed
 ------------------
 ### Apache2 server (Version 2.4.18)
 Modified */etc/apache2/sites-avilable/000-default.conf* as follows:
-
+```
 <VirtualHost *>
     ServerName example.com
 
@@ -32,11 +32,12 @@ Modified */etc/apache2/sites-avilable/000-default.conf* as follows:
         Allow from all
     </Directory>
 </VirtualHost>
-
+```
 
 ### Postgresql (Version 9.5.7)
 
 created user catalog
+
 created database catalog for this user
 
 ### python 2.7 and pip
@@ -46,4 +47,5 @@ Installed *sqlalchemy, flask, psycopg2, httplib2, oauth2client, requests* module
 Note
 ---------------------
 Google Oauth client does not allow public IPs for redirecting URLs, so Google authentication is not working. 
+
 Instead you can use Facebook authentication.
